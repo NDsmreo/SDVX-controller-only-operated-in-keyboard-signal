@@ -1,23 +1,23 @@
 #include <Keyboard.h>
-#define BT_A 1
-#define BT_B 2
-#define BT_C 3
-#define BT_D 4
-#define BT_E 5
-#define BT_F 6
+#define BT_A 13
+#define BT_B 12
+#define BT_C 11
+#define BT_D 10
+#define BT_E 9
+#define BT_F 8
 #define FX_L 7
-#define FX_R 8
-#define BT_ST 9
+#define FX_R 6
+#define BT_ST 5
 
-#define LBT_A 10
-#define LBT_B 11
-#define LBT_C 12
-#define LBT_D 13
-#define LBT_E A0
-#define LBT_F A1
-#define LFX_L A2
-#define LFX_R A3
-#define LBT_ST A4
+#define LBT_A A0
+#define LBT_B A1
+#define LBT_C A2
+#define LBT_D A3
+#define LBT_E A4
+#define LBT_F A5
+#define LFX_L MOSI
+#define LFX_R MISO
+#define LBT_ST SCK
 
 #include "Encoder.h"
 Encoder enc1(0, 1);
