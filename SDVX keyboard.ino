@@ -127,12 +127,12 @@ void loop()
   
   if (digitalRead(BT_F) == LOW)
   {
-    Keyboard.press("'");
+    Keyboard.press('k');
     digitalWrite(LBT_F, HIGH);
   }
   else
   {
-    Keyboard.release("'");
+    Keyboard.release('k');
     digitalWrite(LBT_F, LOW);
   }
 
