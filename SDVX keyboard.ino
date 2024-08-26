@@ -72,101 +72,101 @@ void loop()
 
   if (digitalRead(BT_A) == LOW)
   {
-    Keyboard.press('d');
-    digitalWrite(LBT_A, LOW);
-  }
-  else
-  {
-    Keyboard.release('d');
-    digitalWrite(LBT_A, HIGH);
-  }
-
-  if (digitalRead(BT_B) == LOW)
-  {
-    Keyboard.press('f');
-    digitalWrite(LBT_B, LOW);
-  }
-  else
-  {
-    Keyboard.release('f');
-    digitalWrite(LBT_B, HIGH);
-  }
-
-  if (digitalRead(BT_C) == LOW)
-  {
-    Keyboard.press('j');
-    digitalWrite(LBT_C, LOW);
-  }
-  else
-  {
-    Keyboard.release('j');
-    digitalWrite(LBT_C, HIGH);
-  }
-
-  if (digitalRead(BT_D) == LOW)
-  {
-    Keyboard.press('k');
-    digitalWrite(LBT_D, LOW);
-  }
-  else
-  {
-    Keyboard.release('k');
-    digitalWrite(LBT_D, HIGH);
-  }
-
-  if (digitalRead(BT_E) == LOW)
-  {
     Keyboard.press('s');
-    digitalWrite(LBT_E, LOW);
+    digitalWrite(LBT_A, HIGH);
   }
   else
   {
     Keyboard.release('s');
-    digitalWrite(LBT_E, HIGH);
+    digitalWrite(LBT_A, LOW);
   }
-  
-  if (digitalRead(BT_F) == LOW)
+
+  if (digitalRead(BT_B) == LOW)
+  {
+    Keyboard.press('d');
+    digitalWrite(LBT_B, HIGH);
+  }
+  else
+  {
+    Keyboard.release('d');
+    digitalWrite(LBT_B, LOW);
+  }
+
+  if (digitalRead(BT_C) == LOW)
   {
     Keyboard.press('l');
-    digitalWrite(LBT_F, LOW);
+    digitalWrite(LBT_C, HIGH);
   }
   else
   {
     Keyboard.release('l');
+    digitalWrite(LBT_C, LOW);
+  }
+
+  if (digitalRead(BT_D) == LOW)
+  {
+    Keyboard.press(';');
+    digitalWrite(LBT_D, HIGH);
+  }
+  else
+  {
+    Keyboard.release(';');
+    digitalWrite(LBT_D, LOW);
+  }
+
+  if (digitalRead(BT_E) == LOW)
+  {
+    Keyboard.press('a');
+    digitalWrite(LBT_E, HIGH);
+  }
+  else
+  {
+    Keyboard.release('a');
+    digitalWrite(LBT_E, LOW);
+  }
+  
+  if (digitalRead(BT_F) == LOW)
+  {
+    Keyboard.press("'");
     digitalWrite(LBT_F, HIGH);
+  }
+  else
+  {
+    Keyboard.release("'");
+    digitalWrite(LBT_F, LOW);
   }
 
   if (digitalRead(FX_L) == LOW)
   {
     Keyboard.press('c');
-    digitalWrite(LFX_L, LOW);
+    digitalWrite(LFX_L, HIGH);
   }
   else
   {
     Keyboard.release('c');
-    digitalWrite(LFX_L, HIGH);
+    digitalWrite(LFX_L, LOW);
   }
 
   if (digitalRead(FX_R) == LOW)
   {
     Keyboard.press('m');
-    digitalWrite(LFX_R, LOW);
+    digitalWrite(LFX_R, HIGH);
   }
   else
   {
     Keyboard.release('m');
-    digitalWrite(LFX_R, HIGH);
+    digitalWrite(LFX_R, LOW);
   }
 
   if (digitalRead(BT_ST) == LOW)
   {
     Keyboard.press(KEY_RETURN);
-    digitalWrite(LBT_ST, LOW);
+    digitalWrite(LBT_ST, HIGH);
   }
   else
   {
     Keyboard.release(KEY_RETURN);
-    digitalWrite(LBT_ST, HIGH);
+    digitalWrite(LBT_ST, LOW);
   }
 }
 
@@ -176,11 +176,13 @@ void update_knobs()
   {
     if (knob1 < old_knob1)
     {
-      Keyboard.write('q');
+      Keyboard.press('w');
+      Keyboard.release('q');
     }
     else
     {
-      Keyboard.write('w');
+      Keyboard.press('q');
+      Keyboard.release('w');
     }
 
     if ((old_knob1 = knob1) != knob1)
@@ -188,20 +190,36 @@ void update_knobs()
       enc1.write(old_knob1);
     }
   }
+  else
+  {
+    Keyboard.release('q');
+    Keyboard.release('w');
+  }
+
+
   if (knob2 != old_knob2)
   {
     if (knob2 > old_knob2)
     {
-      Keyboard.write('o');
+      Keyboard.press('o');
+      Keyboard.release('p');
     }
     else
     {
-      Keyboard.write('p');
+      Keyboard.press('p');
+      Keyboard.release('o');
     }
+
 
     if ((old_knob2 = knob2) != knob2)
     {
       enc2.write(old_knob2);
     }
+  }
+  
+  else
+  {
+    Keyboard.release('o');
+    Keyboard.release('p');
   }
 }
